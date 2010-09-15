@@ -1,0 +1,19 @@
+{
+    "name": "jetpack-std", 
+    "license": "MPL 1.1/GPL 2.0/LGPL 2.1", 
+    "author": "Irakli Gozalishvili (http://jeditoolkit.com/) <rfobic@gmail.com>", 
+    "!loader": "lib/cuddlefish.js", 
+    "version": "0.1pre", 
+    "dependencies": [
+        "jep4repl"
+    ], 
+    "keywords": [
+        "javascript", 
+        "engine", 
+        "platform", 
+        "xulrunner"
+    ], 
+    "!main": "jep4repl/main", 
+    "id": "jid0-WIkagvVJ6ro2QAoZaj29exSKGVk", 
+    "description": "Jetpack standard library."
+}
