@@ -11,14 +11,12 @@ function pingPongTest (test, port, host) {
 
     let server = net.createServer(function (socket) {
         socket.id = 'server:'
-        console.log("server:connection -> " + socket.remoteAddress)
         test.assertEqual(server, socket.server)
         //socket.setNoDelay()
         socket.timeout = 0
 
         socket.setEncoding('utf8')
         socket.on("data", function (data) {
-            console.log("server:got -> " + data)
             test.assertEqual(true, socket.writable, 'should be writable on data')
             test.assertEqual(true, socket.readable, 'should be readable on data')
             test.assertEqual(true, count <= N, 'sholud be less then N ??')
@@ -26,7 +24,6 @@ function pingPongTest (test, port, host) {
         })
 
         socket.on("end", function () {
-            console.log('server:client has disconnected')
             test.assertEqual(true, socket.writable, 'when ended should be writable')
             test.assertEqual(false, socket.readable, 'when ended should not be readable')
             socket.end()
@@ -37,7 +34,6 @@ function pingPongTest (test, port, host) {
         })
 
         socket.on("close", function () {
-            console.log('server:socket closed')
             test.assertEqual(false, socket.writable, 'when closed should not be writable')
             test.assertEqual(false, socket.readable, 'when closed should not be readable')
             socket.server.close()
@@ -47,19 +43,16 @@ function pingPongTest (test, port, host) {
 
 
     server.listen(port, host, function () {
-        console.log("server: listening on -> " + port + " " + host);
         let client = net.createConnection(port, host)
         client.id = 'client:'
         client.setEncoding('ascii')
         client.on("connect", function() {
-            console.log('clien:connected')
             test.assertEqual(true, client.readable, 'should be readable when connect')
             test.assertEqual(true, client.writable, 'should be writable when connect')
             client.write("PING")
         })
 
         client.on("data", function (data) {
-            console.log("client: got -> " + data)
             test.assertEqual("PONG", data)
             count += 1
             
@@ -77,13 +70,11 @@ function pingPongTest (test, port, host) {
             } else {
                 sent_final_ping = true
                 client.write("PING")
-                console.log('client:end')
                 client.end()
             }
         })
 
         client.on("close", function onClose() {
-            console.log('client.closed')
             // unlike in node last pong won't be delivered since input / output is closed togather
             test.assertEqual(N, count, 'comparing if number of writes is correct')
             test.assertEqual(true, sent_final_ping)

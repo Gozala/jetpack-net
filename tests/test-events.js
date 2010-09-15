@@ -19,7 +19,7 @@ exports['test:add listeners'] = function(test) {
 
     console.log("start")
 
-    e.emit("hello", "a", "b")
+    e._emit("hello", "a", "b")
 }
 
 exports['test:remove listeners'] = function(test) {
@@ -86,19 +86,19 @@ exports['test: modify in emit'] = function(test) {
     e.on("foo", callback1);
     test.assertEqual(1, e.listeners("foo").length)
 
-    e.emit("foo")
+    e._emit("foo")
     test.assertEqual(2, e.listeners("foo").length)
     test.assertEqual(1, callbacks_called.length)
     test.assertEqual('callback1', callbacks_called[0])
 
-    e.emit("foo")
+    e._emit("foo")
     test.assertEqual(0, e.listeners("foo").length)
     test.assertEqual(3, callbacks_called.length)
     test.assertEqual('callback1', callbacks_called[0])
     test.assertEqual('callback2', callbacks_called[1])
     test.assertEqual('callback3', callbacks_called[2])
 
-    e.emit("foo")
+    e._emit("foo")
     test.assertEqual(0, e.listeners("foo").length)
     test.assertEqual(3, callbacks_called.length)
     test.assertEqual('callback1', callbacks_called[0])
@@ -108,7 +108,7 @@ exports['test: modify in emit'] = function(test) {
     e.on("foo", callback1)
     e.on("foo", callback2)
     test.assertEqual(2, e.listeners("foo").length)
-    e.removeAllListeners("foo")
+    e._removeAllListeners("foo")
     test.assertEqual(0, e.listeners("foo").length)
 
     // Verify that removing callbacks while in emit allows emits to propagate to 
@@ -118,7 +118,7 @@ exports['test: modify in emit'] = function(test) {
     e.on("foo", callback2)
     e.on("foo", callback3)
     test.assertEqual(2, e.listeners("foo").length)
-    e.emit("foo")
+    e._emit("foo")
     test.assertEqual(2, callbacks_called.length)
     test.assertEqual('callback2', callbacks_called[0])
     test.assertEqual('callback3', callbacks_called[1])
