@@ -1,8 +1,10 @@
-Jetpack standard library provides additional CommonJS infrastructure that is
-not present in jetpack core.
+Jetpack library for networking.
 
-Jetpack standard library provides:
+Library provides:
 
-* [node.js] like event emitters
+* [net] module implementing APIs of same named module in [node.js].
+It can be used for writing [TCP] servers & clients.
 
 [node.js]:http://nodejs.org/
+[tcp]:http://en.wikipedia.org/wiki/Tcp
+[net]:http://nodejs.org/api.html#net-server-205
