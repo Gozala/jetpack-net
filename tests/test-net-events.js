@@ -1,5 +1,5 @@
 exports['test:add listeners'] = function(test) {
-    let { EventEmitter } = require('events')
+    let { EventEmitter } = require('net/events')
     let e = new EventEmitter()
 
     let events_new_listener_emited = []
@@ -23,7 +23,7 @@ exports['test:add listeners'] = function(test) {
 }
 
 exports['test:remove listeners'] = function(test) {
-    let { EventEmitter } = require('events')
+    let { EventEmitter } = require('net/events')
     let count = 0
 
     function listener1 () {
@@ -63,7 +63,7 @@ exports['test:remove listeners'] = function(test) {
 }
 
 exports['test: modify in emit'] = function(test) {
-    let { EventEmitter } = require('events')
+    let { EventEmitter } = require('net/events')
     
     let callbacks_called = [ ]
     let e = new EventEmitter()
