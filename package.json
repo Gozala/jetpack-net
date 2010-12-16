@@ -1,5 +1,5 @@
 { "name": "net"
-, "version": "1.0.0"
+, "version": "1.0.1"
 , "description": "Jetpack library for TCP."
 , "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
 , "keywords": [ "net", "socket", "server" ]
