@@ -2,7 +2,6 @@
 , "version": "1.0.0"
 , "description": "Jetpack library for TCP."
 , "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
-, "dependencies": [ "jetpack-core" ]
 , "keywords": [ "net", "socket", "server" ]
 , "license": "MPL 1.1/GPL 2.0/LGPL 2.1"
 , "id": "jid0-WIkagvVJ6ro2QAoZaj29exSKGVk"
