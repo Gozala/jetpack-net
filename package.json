@@ -1,8 +1,12 @@
-{ "name": "net"
-, "version": "1.0.1"
-, "description": "Jetpack library for TCP."
-, "author": "Irakli Gozalishvili (http://jeditoolkit.com/)"
-, "keywords": [ "net", "socket", "server" ]
-, "license": "MPL 1.1/GPL 2.0/LGPL 2.1"
-, "id": "net"
+{
+  "name": "net",
+  "id": "net",
+  "version": "1.1.0",
+  "description": "Jetpack library for TCP.",
+  "keywords": ["net", "socket", "server"],
+  "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com/)",
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://jeditoolkit.com/LICENSE"
+  }]
 }
